@@ -1,0 +1,57 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.bytedance.app.boost_multidex"
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        multiDexEnabled true
+        multiDexKeepProguard file('maindex-keep.pro')
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+
+    implementation project(":boost_multidex")
+
+    implementation "org.scala-lang:scala-library:2.11.7"
+
+    implementation "com.facebook.fresco:fresco:1.0.1"
+    implementation "com.facebook.fresco:animated-webp:1.0.1"
+    implementation "com.facebook.fresco:imagepipeline-okhttp3:1.0.1"
+    implementation "io.reactivex.rxjava2:rxjava:2.2.3"
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    implementation "com.squareup.okhttp:okhttp:2.7.5"
+    implementation "com.facebook.soloader:soloader:0.1.0"
+    implementation 'org.greenrobot:eventbus:3.1.1'
+    implementation 'com.github.promeg:tinypinyin:2.0.3'
+
+    implementation 'com.squareup.okhttp3:okhttp:3.4.1'
+    implementation 'com.squareup.okio:okio:1.5.0'
+
+    implementation 'com.google.code.gson:gson:2.2.4'
+
+    implementation 'com.github.bumptech.glide:glide:4.4.0'
+}

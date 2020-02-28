@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.bytedance.boost_multidex">
+
+    <application>
+        <service
+            android:name=".OptimizeService"
+            android:process=":boost_multidex"
+            android:exported="false" />
+    </application>
+
+</manifest>
