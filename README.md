@@ -53,7 +53,9 @@ public class YourApplication extends Application {
 
 ## 编译构建
 
-如果想自行编译打包，只需要执行以下命令即可构建本地aar包
+如果想自行编译打包，需要使用[R16B版本的NDK](https://developer.android.com/ndk/downloads/older_releases)以支持armeabi架构，如果不需要，可以直接在boost_multidex/build.gradle中去掉此依赖。
+
+执行以下命令即可构建本地aar包：
 
 ```gralde
 ./gradlew :boost_multidex:assembleRelease
