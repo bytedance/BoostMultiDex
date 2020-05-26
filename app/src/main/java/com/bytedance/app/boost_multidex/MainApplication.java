@@ -3,9 +3,9 @@ package com.bytedance.app.boost_multidex;
 import android.app.Application;
 import android.content.Context;
 import android.support.multidex.MultiDex;
+import android.util.Log;
 
 import com.bytedance.boost_multidex.BoostMultiDex;
-import com.bytedance.boost_multidex.Monitor;
 import com.bytedance.boost_multidex.Result;
 
 /**
@@ -17,16 +17,19 @@ public class MainApplication extends Application {
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
 
-        Monitor monitor = new Monitor() {
-            @Override
-            protected void reportAfterInstall(long cost, long freeSpace, long reducedSpace, String dexHolderInfo) {
-                super.reportAfterInstall(cost, freeSpace, reducedSpace, dexHolderInfo);
+        boolean useBoostMultiDex = true;
+
+        long start = System.currentTimeMillis();
+        if (useBoostMultiDex) {
+            Result result = BoostMultiDex.install(this);
+            if (result != null && result.fatalThrowable != null) {
+                Log.e("BMD", "exception occored " + result.fatalThrowable);
             }
-        };
-        Result result = BoostMultiDex.install(this, monitor);
-        if (result != null && result.fatalThrowable != null) {
+        } else {
             MultiDex.install(this);
         }
+
+        Log.i("BMD", "multidex cost time " + (System.currentTimeMillis() - start) + " ms");
     }
 }
 
