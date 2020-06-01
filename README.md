@@ -32,6 +32,7 @@ build.gradle的dependencies中添加依赖：
 ```gradle
 dependencies {
 ... ...
+    // For specific version number, please refer to app demo
     implementation 'com.bytedance.boost_multidex:boost_multidex:${ARTIFACT_VERSION}'
 }
 ```
