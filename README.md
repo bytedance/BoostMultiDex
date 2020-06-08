@@ -80,6 +80,4 @@ public class YourApplication extends Application {
 
 ## 详细原理
 
-[抖音BoostMultiDex优化实践：Android低版本上APP首次启动时间减少80%（一）](https://mp.weixin.qq.com/s/jINCbTJ5qMaD6NdeGBHEwQ)
-
-[抖音BoostMultiDex优化实践：Android低版本上APP首次启动时间减少80%（二）](https://mp.weixin.qq.com/s/ILDTykAwR0xIkW-d1YzRHw)
+请参考本项目[Wiki](https://github.com/bytedance/BoostMultiDex/wiki/Technical-Article)
