@@ -76,7 +76,7 @@ public class YourApplication extends Application {
 | 4.2.1 | HUAWEI | G610-U00 | 36.465 | 4.981 |
 | 4.1.2	 | Samsung | I9100	 | 30.962 | 5.345 |
 
-以上是在抖音上测得的实际数据，APK中共有6个Secondary DEX，显而易见，BoostMultiDex方案相比官方MultiDex方案，其耗时有着本质上的优化，基本都只到原先的11%~17%之间。**也就是说BoostMultiDex减少了原先过程80%以上的耗时。**另外我们看到，其中有一个机型，在官方MultiDex下是直接崩溃，无法启动的。使用BoostMultiDex也将使得这些机型可以焕发新生。
+以上是在抖音上测得的实际数据，APK中共有6个Secondary DEX，显而易见，BoostMultiDex方案相比官方MultiDex方案，其耗时有着本质上的优化，基本都只到原先的11%~17%之间。 **也就是说BoostMultiDex减少了原先过程80%以上的耗时。** 另外我们看到，其中有一个机型，在官方MultiDex下是直接崩溃，无法启动的。使用BoostMultiDex也将使得这些机型可以焕发新生。
 
 ## 详细原理
 
