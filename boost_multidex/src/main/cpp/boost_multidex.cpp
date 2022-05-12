@@ -193,19 +193,23 @@ static func_openDexFileBytes findOpenDexFileFunc(JNINativeMethod *func, const ch
 }
 
 static bool CheckIsSpecHtc() {
-    const char htc[] = "htc";
-    size_t len = strlen(htc);
+    try{
+        const char htc[] = "htc";
+        size_t len = strlen(htc);
 
-    char brand[PROP_NAME_MAX];
-    __system_property_get("ro.product.brand", brand);
-    if (strncasecmp(htc, brand, len) == 0) {
-        return true;
+        char brand[PROP_NAME_MAX * 3];
+        __system_property_get("ro.product.brand", brand);
+        if (strncasecmp(htc, brand, len) == 0) {
+            return true;
+        }
+        __system_property_get("ro.product.manufacturer", brand);
+        if (strncasecmp(htc, brand, len) == 0) {
+            return true;
+        }
+        return false;
+    } catch (...) {
+        return false;
     }
-    __system_property_get("ro.product.manufacturer", brand);
-    if (strncasecmp(htc, brand, len) == 0) {
-        return true;
-    }
-    return false;
 }
 
 static void OpenDexHandler(int) {
